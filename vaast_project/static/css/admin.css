@@ -1,0 +1,67 @@
+/* Custom admin styles */
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #f4f4f9;
+}
+
+.module h2 {
+    background: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.module .inline-related h3 {
+    background: #4CAF50;
+    color: white;
+    padding: 5px;
+}
+
+.module .form-row label {
+    color: #333;
+    font-weight: bold;
+}
+
+.module .form-row {
+    margin: 10px 0;
+}
+
+.nav-sidebar li a {
+    color: #4CAF50;
+}
+
+.nav-sidebar li.selected a {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.object-tools .addlink,
+.object-tools .deletelink,
+.object-tools .historylink {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.object-tools .addlink:hover,
+.object-tools .deletelink:hover,
+.object-tools .historylink:hover {
+    background-color: #45a049;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
