@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Create Experiment{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1>Create New Experiment</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button">Create Experiment</button>
+    </form>
+</div>
+{% endblock %}

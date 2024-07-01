@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Participant</title>
+</head>
+<body>
+    <h1>Delete Participant</h1>
+    <p>Are you sure you want to delete participant {{ participant.subject_id }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+        <a href="{% url 'manage_participants' %}">No, go back</a>
+    </form>
+</body>
+</html>

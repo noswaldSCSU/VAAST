@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Researcher Dashboard{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1>Researcher Dashboard</h1>
+    <a href="{% url 'create_experiment' %}" class="button">Create New Experiment</a>
+
+    <h2>Existing Experiments</h2>
+    <ul>
+        {% for experiment in experiments %}
+        <li>{{ experiment.name }} - <a href="{% url 'list_participants' %}">View Participants</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
