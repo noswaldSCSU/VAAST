@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Participant Detail</title>
+</head>
+<body>
+    <h1>Participant Detail</h1>
+    <p>Subject ID: {{ participant.subject_id }}</p>
+    <p>Extra Metadata: {{ participant.extra_metadata }}</p>
+    <p>Created At: {{ participant.created_at }}</p>
+    <p>Updated At: {{ participant.updated_at }}</p>
+    <a href="{% url 'edit_participant' participant.id %}">Edit</a>
+    <a href="{% url 'manage_participants' %}">Back to Manage Participants</a>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Participant Login{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1>Participant Login</h1>
+    <p>Please enter your Participant ID to start the experiment.</p>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input type="text" name="participant_id" class="input-field" placeholder="Enter Participant ID" required>
+        <button type="submit" class="button">Start</button>
+    </form>
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+</div>
+{% endblock %}

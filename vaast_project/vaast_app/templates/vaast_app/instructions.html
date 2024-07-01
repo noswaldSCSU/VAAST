@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instructions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .content {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Instructions</h1>
+        <p>Welcome to the VAAST Task experiment!</p>
+        <p>In this experiment, you will see a series of words. Your task is to respond as quickly and accurately as possible:</p>
+        <ul style="text-align: left; margin: auto; max-width: 500px;">
+            <li>Press the 'Y' key to approach positive words.</li>
+            <li>Press the 'N' key to avoid negative words.</li>
+        </ul>
+        <p>Please do your best and respond as quickly as you can.</p>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <button type="submit" class="button">Start Experiment</button>
+        </form>
+    </div>
+</body>
+</html>
