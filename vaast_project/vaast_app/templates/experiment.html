@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Experiment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .stimulus {
+            font-size: 2em;
+            transition: font-size 0.5s ease;
+        }
+    </style>
+    <script>
+        let startTime;
+        let stimulusElement;
+
+        function displayStimulus(stimulus) {
+            stimulusElement = document.getElementById('stimulus');
+            stimulusElement.innerText = stimulus;
+            startTime = performance.now();
+        }
+
+        function captureResponse(event) {
+            const validKeys = ['Y', 'N'];
+            if (validKeys.includes(event.key.toUpperCase())) {
+                const responseTime = performance.now() - startTime;
+                document.getElementById('response-time').value = responseTime.toFixed(2);
+                document.getElementById('response-key').value = event.key.toUpperCase();
+
+                // Change font size based on user input
+                if (event.key.toUpperCase() === 'Y') {
+                    stimulusElement.style.fontSize = '3em'; // Increase size
+                } else if (event.key.toUpperCase() === 'N') {
+                    stimulusElement.style.fontSize = '1em'; // Decrease size
+                }
+                
+                setTimeout(() => {
+                    document.getElementById('response-form').submit();
+                }, 1000); // Keep the change for 1 second before submitting
+            }
+        }
+
+        window.addEventListener('keydown', captureResponse);
+
+        window.onload = function() {
+            const stimulus = "{{ stimulus }}";
+            setTimeout(() => displayStimulus(stimulus), 1000);  // Show stimulus after a brief delay
+        };
+    </script>
+</head>
+<body>
+    <div class="stimulus" id="stimulus">+</div>
+    <form id="response-form" method="POST" action="{% url 'save_response' %}">
+        {% csrf_token %}
+        <input type="hidden" name="response_time" id="response-time" value="">
+        <input type="hidden" name="response_key" id="response-key" value="">
+    </form>
+</body>
+</html>
